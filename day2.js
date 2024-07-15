@@ -91,8 +91,6 @@ if (!isUserLoggin) {
 let d = !true;
 console.log("answer is ", d);
 
-
-
 // #Ternary Operator
 
 let number = 6;
