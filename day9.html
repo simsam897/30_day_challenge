@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document object manipulation</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        /* background-color: red; */
+
+      }
+
+      .tango {
+        background-color: aquamarine;
+        color: brown;
+        font-weight: bold;
+        font-size: medium;
+      }
+
+      .box3 {
+        width: 150px;
+        height: 75px;
+        border: 5px solid;
+        border-color: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p id="changeText">hi , every</p>
+
+    <div class="box">
+      this is box
+    </div>
+
+
+
+    <ul id="generateLi"></ul>
+
+
+    <img src="https://static.toiimg.com/thumb/msid-111784933,imgsize-1496948,width-400,resizemode-4/111784933.jpg"
+      alt="">
+
+
+    <p id="addClass"> adding class </p>
+
+    <h4 class="tango" id="removeClass">removing class</h4>
+
+
+    <p id="paragraph">this is a paragraph over global warming</p>
+
+    <button id="changeButton">click to change the content</button>
+
+
+    <div class="box3">
+      this is box 3
+    </div>
+  </body>
+  <script>
+    const pTag = document.getElementById("changeText");
+
+    pTag.innerHTML = "heelo , everyone";
+
+    // const boxElements = document.getElementsByClassName("box");
+
+    // for (let i = 0; i < boxElements.length; i++) {
+
+    //   boxElements[i].style.backgroundColor = "cadetblue";
+
+    // }
+
+    const div = document.querySelectorAll(".box");
+
+    div.forEach(box => {
+      box.style.backgroundColor = "cadetblue";
+    });
+
+
+    const newDiv = document.createElement("div");
+
+    newDiv.textContent = " this is new div";
+
+    newDiv.style.backgroundColor = "grey"
+
+    newDiv.style.marginTop = "15px"
+    newDiv.style.width = "200px"
+    newDiv.style.height = "200px"
+    newDiv.style.textAlign = "center"
+    newDiv.style.fontSize = "1.5rem"
+
+    document.body.appendChild(newDiv)
+
+
+
+    const ul = document.getElementById("generateLi")
+
+    ul.style.margin = "25px"
+
+    ul.style.width = "100%"
+    ul.style.height = "100px"
+    ul.style.backgroundColor = "skyblue"
+
+    const bulidLi = document.createElement("li")
+
+    bulidLi.textContent = "this is newly ceated li"
+
+    ul.appendChild(bulidLi)
+    bulidLi.remove()
+
+
+    const image = document.querySelector('img');
+
+
+    image.src = 'https://images.unsplash.com/photo-1720048170996-40507a45c720?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8';
+
+    const addClass = document.getElementById("addClass");
+
+    addClass.classList.add("tango");
+
+    const removeClass = document.querySelector("#removeClass");
+
+
+    removeClass.classList.remove("tango");
+
+    const paragraph = document.getElementById("paragraph");
+    const button = document.getElementById("changeButton");
+
+    button.addEventListener("click", () => {
+
+      paragraph.textContent = "what is this";
+    })
+
+
+    const box3 = document.querySelector(".box3");
+
+    box3.addEventListener("mouseover", () => {
+      box3.style.border = "5px solid red"
+    })
+
+
+
+  </script>
+
+</html>
