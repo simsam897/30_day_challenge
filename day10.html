@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <style>
+    #toggleImage {
+      margin: 50px;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: yellowgreen;
+      margin-top: 20px;
+    }
+
+    #userInput {
+      margin-top: 50px;
+    }
+
+    #dropdown {
+      margin-top: 20px;
+    }
+
+    form {
+      border: 2px solid grey;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    form input {
+      width: 200px;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: large;
+      font-weight: bold;
+      background-color: lightgray;
+      width: 200px;
+    }
+
+    form button {
+      width: 50px;
+    }
+
+    #selectedParagraph {
+      margin-left: 20px;
+      font-size: large;
+      font-weight: bold;
+      background-color: lightgray;
+      width: 200px;
+    }
+
+    .preesKeyBox {
+      width: 300px;
+      height: 140px;
+      border: 1px solid black;
+      margin: 20px;
+    }
+
+    .optionBox {
+      width: 300px;
+      height: 140px;
+      border: 1px solid black;
+      margin: 20px;
+    }
+
+    .grocery {
+      width: 300px;
+      height: 140px;
+      border: 1px solid black;
+      margin: 20px;
+
+    }
+  </style>
+
+  <body>
+    <div>
+      <p id="orignal">this is orignal paragraph</p>
+
+      <button id="changeText">change the text</button>
+    </div>
+
+    <img id="toggleImage"
+      src="https://static.toiimg.com/thumb/msid-111784933,imgsize-1496948,width-400,resizemode-4/111784933.jpg" alt="">
+
+
+    <div class="box"></div>
+
+    <div class="preesKeyBox">
+      <input type="text" id="userInput" placeholder="enter any key">
+
+
+      <p id="output">output</p>
+    </div>
+
+
+
+    <form>
+      <label for="username">username</label>
+      <input type="text" id="username" name="username" placeholder="username">
+      <label for="password">password</label>
+      <input type="text" id="password" name="password" placeholder="password">
+
+      <button type="submit">submit</button>
+    </form>
+
+    <div class="optionBox">
+      <label for="dropdown">slect your favorite animal</label>
+      <select name="" id="dropdown">
+        <option value="dog">dog</option>
+        <option value="cat">cat</option>
+        <option value="horse">horse</option>
+      </select>
+
+      <p id="selectedParagraph">selected option</p>
+    </div>
+
+
+    <div class="grocery">
+      <h3>grocery list</h3>
+      <ul class="lsit">
+
+        <li>milk</li>
+        <li>eggs</li>
+        <li>bread</li>
+      </ul>
+    </div>
+
+    <div class="parent">
+      <button class="child">
+        add child
+      </button>
+    </div>
+
+
+  </body>
+  <script>
+    const btn = document.getElementById("changeText");
+    const orignal = document.getElementById("orignal");
+
+    btn.addEventListener("click", () => {
+      orignal.textContent = "this is changed paragraph"
+    })
+
+    const image = document.querySelector("#toggleImage");
+
+    image.addEventListener("dblclick", () => {
+      if (image.style.display === "none") {
+        image.style.display = "block";
+
+      } else {
+        image.style.display = "none";
+
+      }
+    })
+
+    //mouse events
+
+    const box = document.querySelector(".box");
+
+    box.addEventListener("mouseover", () => {
+      box.style.backgroundColor = "red";
+    })
+
+    box.addEventListener("mouseout", () => {
+      box.style.backgroundColor = "yellowgreen";
+    })
+
+
+    // script.js
+
+    const inputField = document.getElementById('userInput');
+
+    inputField.addEventListener('keydown', function (event) {
+      console.log(`Key pressed: ${event.key}`);
+    });
+
+    const output = document.getElementById('output');
+
+    inputField.addEventListener('keyup', function (event) {
+
+      output.innerText = event.key;
+
+    });
+
+
+    const form = document.querySelector('form');
+
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+
+      formData.forEach((value, key) => {
+        console.log(`${key} : ${value}`)
+      })
+
+
+      username.value = '';
+      password.value = '';
+
+    });
+
+
+
+    const dropdown = document.querySelector('#dropdown');
+    const selectedParagraph = document.querySelector('#selectedParagraph');
+
+    dropdown.addEventListener('change', function (event) {
+      selectedParagraph.textContent = event.target.value;
+    })
+
+
+    const list = document.querySelector('.lsit');
+
+    list.addEventListener('click', function (event) {
+      if (event.target.tagName === 'LI') {
+
+        console.log(event.target.textContent);
+
+      }
+    });
+
+
+
+    const parent = document.querySelector('.parent');
+    const child = document.querySelector('.child');
+
+    parent.addEventListener('click', function (event) {
+
+      if (event.target.tagName === 'P') {
+
+        console.log(event.target.textContent);
+      }
+
+    })
+
+
+    function addChild() {
+      const newChild = document.createElement('p');
+      newChild.classList.add('child');
+      newChild.textContent = `Child ${parent.children.length}`;
+      parent.appendChild(newChild);
+    }
+
+    // Add event listener to the button to add new child elements
+    child.addEventListener('click', addChild);
+
+
+
+  </script>
+
+</html>
