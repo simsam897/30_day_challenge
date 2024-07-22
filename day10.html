@@ -9,6 +9,7 @@
   <style>
     #toggleImage {
       margin: 50px;
+      display: block;
     }
 
     .box {
@@ -152,17 +153,18 @@
       orignal.textContent = "this is changed paragraph"
     })
 
-    const image = document.querySelector("#toggleImage");
+const image = document.querySelector("#toggleImage");
 
     image.addEventListener("dblclick", () => {
       if (image.style.display === "none") {
         image.style.display = "block";
-
       } else {
         image.style.display = "none";
-
       }
-    })
+    });
+
+
+   
 
     //mouse events
 
