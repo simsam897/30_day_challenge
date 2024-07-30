@@ -17,9 +17,8 @@ const num = 8;
 console.log(`The factorial of ${num} is ${factorial(num)}`);
 
 function fibonacci(n) {
-  if (n < 0) {
-    throw new Error("Fibonacci is not defined for negative numbers");
-  }
+  throw new Error("Fibonacci is not defined for negative numbers");
+
   let a = 0,
     b = 1,
     temp;
