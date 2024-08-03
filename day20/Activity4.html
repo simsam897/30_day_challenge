@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <form id="userForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <br><br>
+      <button type="submit">submit</button>
+    </form>
+
+
+    <h2>Saved Data:</h2>
+    <div id="savedData"></div>
+
+
+    <h1>Manage sessionStorage</h1>
+    <div>
+      <button onclick="saveItem()">Save Item</button>
+      <button onclick="removeItem()">Remove Item</button>
+    </div>
+
+    <h2>LocalStorage Content:</h2>
+    <pre id="sessionStorageContent"></pre>
+
+
+
+
+    <script>
+
+      function saveData(event) {
+        event.preventDefault();
+        let name = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("email", email);
+
+        displayData();
+
+
+      }
+
+      function displayData() {
+
+        let name = sessionStorage.getItem("name");
+        let email = sessionStorage.getItem("email");
+
+        if (name && email) {
+          document.getElementById("savedData").innerHTML = `
+        <p>Username: ${name}</p>
+        <p>Email: ${email}</p>
+        `;
+        }
+        else {
+          document.getElementById("savedData").innerHTML = `<p>No data saved.</p>`;
+        }
+
+      }
+
+      let form = document.getElementById("userForm");
+      form.addEventListener("submit", saveData);
+
+      window.onload = displayData;
+
+
+
+
+
+
+
+
+      function saveItem() {
+        sessionStorage.setItem('college', 'LGC');
+        displayContent();
+      }
+
+      // Function to remove the item from sessionStorage
+      function removeItem() {
+        sessionStorage.removeItem('college');
+        displayContent();
+      }
+
+      // Function to display the current sessionStorage content
+      function displayContent() {
+        const content = {};
+        for (let i = 0; i < sessionStorage.length; i++) {
+          const key = sessionStorage.key(i);
+          const value = sessionStorage.getItem(key);
+          content[key] = value;
+        }
+        document.getElementById('sessionStorageContent').textContent = JSON.stringify(content, null, 2);
+      }
+
+      // Display the sessionStorage content on page load
+      window.onload = displayContent;
+    </script>
+  </body>
+
+</html>

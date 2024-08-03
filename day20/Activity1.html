@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local storage activity</title>
+  </head>
+
+  <body>
+
+
+
+  </body>
+
+  <script>
+    localStorage.setItem("myname", "zsam");
+
+    let result = localStorage.getItem("myname");
+    console.log(result);
+
+
+    let student = {
+      std_name: "zsam",
+      std_age: 20,
+      city: "ludhiana"
+    }
+
+    localStorage.setItem("student", JSON.stringify(student));
+    let data = localStorage.getItem("student");
+    console.log(JSON.parse(data));
+
+  </script>
+
+</html>

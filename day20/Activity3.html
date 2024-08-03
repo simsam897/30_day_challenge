@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+
+    <script>
+      sessionStorage.setItem("hero", "spiderman");
+
+      let result = sessionStorage.getItem("hero");
+      console.log(result);
+
+      let heros = {
+        name: "spiderman",
+        age: 20,
+        city: "ludhiana"
+      }
+
+      sessionStorage.setItem("heros", JSON.stringify(heros));
+      let data = sessionStorage.getItem("heros");
+      console.log(data);
+    </script>
+  </body>
+
+</html>

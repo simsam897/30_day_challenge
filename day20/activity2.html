@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove LocalStorage Item</title>
+  </head>
+
+  <body>
+
+    <script>
+      // Function to save a sample item to localStorage
+      function saveItem() {
+        localStorage.setItem('sampleKey', 'sampleValue');
+        displayContent();
+      }
+
+      // Function to remove the item from localStorage
+      function removeItem() {
+        localStorage.removeItem('sampleKey');
+        displayContent();
+      }
+
+      // Function to display the current localStorage content
+      function displayContent() {
+        const content = {};
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          const value = localStorage.getItem(key);
+          content[key] = value;
+        }
+        document.getElementById('localStorageContent').textContent = JSON.stringify(content, null, 2);
+      }
+
+      // Display the localStorage content on page load
+      window.onload = displayContent;
+    </script>
+  </body>
+
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <form action="" id="form" class="border-2  border-black  m-5 w-50 flex flex-col  items-center ">
+      <label for="name">Name: </label><input type="text" id="name" class="border-2 border-black">
+      <label for="email">Email:</label> <input type="email" id="email" class="border-2 border-black">
+
+      <button type="submit" class="border-2 border-black bg-blue-300 my-5">Submit</button>
+    </form>
+
+    <div class="output">
+
+    </div>
+
+    <script>
+
+      const form = document.getElementById("form");
+      const submit = document.getElementById("submit");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        let user = { name, email };
+
+
+        localStorage.setItem("submit", JSON.stringify(user));
+
+        form.reset();
+
+
+        saveData(user);
+      })
+
+
+      function saveData() {
+        const output = document.querySelector(".output");
+        let data = localStorage.getItem("submit");
+        console.log(JSON.parse(data));
+        output.innerHTML += `<p>Name: ${data} </p>`
+      };
+
+
+
+
+
+
+      window.addEventListener('load', () => {
+        const storedUserString = localStorage.getItem('user');
+        if (storedUserString) {
+          const storedUser = JSON.parse(storedUserString);
+          console.log('Retrieved data:', storedUser);
+          saveData(storedUser);
+        }
+
+
+      });
+
+
+
+
+    </script>
+  </body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form with LocalStorage</title>
+  </head>
+
+  <body>
+    <h1>Save User Input to LocalStorage</h1>
+    <form id="userForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <br><br>
+      <button type="submit">Save</button>
+    </form>
+
+    <h2>Saved Data:</h2>
+    <div id="savedData"></div>
+
+
+
+
+
+    <h1>Manage LocalStorage</h1>
+    <div>
+      <button onclick="saveItem()">Save Item</button>
+      <button onclick="removeItem()">Remove Item</button>
+    </div>
+    <h2>LocalStorage Content:</h2>
+    <pre id="localStorageContent"></pre>
+
+
+    <script>
+      // Function to save form data to localStorage
+      function saveData(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
+        displayData();
+      }
+
+      // Function to display saved data
+      function displayData() {
+        const username = localStorage.getItem('username');
+        const email = localStorage.getItem('email');
+        if (username && email) {
+          document.getElementById('savedData').innerHTML = `
+                    <p>Username: ${username}</p>
+                    <p>Email: ${email}</p>
+                `;
+        } else {
+          document.getElementById('savedData').innerHTML = '<p>No data saved.</p>';
+        }
+      }
+
+      // Event listener for form submission
+      document.getElementById('userForm').addEventListener('submit', saveData);
+
+      // Display saved data on page load
+      window.onload = displayData;
+
+
+
+      // removing item from local storage code starts from here
+      function saveItem() {
+        localStorage.setItem('college', 'LGC');
+        displayContent();
+      }
+
+      // Function to remove the item from localStorage
+      function removeItem() {
+        localStorage.removeItem('college');
+        displayContent();
+      }
+
+      // Function to display the current localStorage content
+      function displayContent() {
+        const content = {};
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          const value = localStorage.getItem(key);
+          content[key] = value;
+        }
+        document.getElementById('localStorageContent').textContent = JSON.stringify(content, null, 2);
+      }
+
+      // Display the localStorage content on page load
+      window.onload = displayContent;
+
+
+
+
+    </script>
+  </body>
+
+</html>
