@@ -1,0 +1,170 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>WHETHER APP </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1> WHETHER APP </h1>
+    <div class="container">
+    <div class="weather-input">
+    <h3> Enter the city name</h3>
+    <input class="city-input" type="text"  placeholder="london ,delhi , ludhiana">
+     <button class="search-btn">search</button>
+     <div class="separator"></div>
+     <button class="location-btn">use current location</button>
+  </div>
+
+     <div class="weather-data">
+      <div class="current-weather">
+        <div class="details">
+          <h2>_____(_______)</h2>
+          <h4> Temprature:_____ celcius</h4>
+          <h4> wind ____ M/S</h4>
+          <h4> humidity  ___%</h4>
+
+  
+  </div>
+
+        <div class="icon">
+        <img src="https://openweathermap.org/img/wn/10d@4x.png" alt="whether-icon">    
+        <h4> Moderate rain</h4>  
+      </div>
+     </div>
+
+     <div class="days-forecast"></div>
+     <h2>5-days forecast</h2>
+     <ul class="weather-cards">
+      <li class="card">
+        <h3> (_______)</h2>
+          
+        <h4> Temprature __ celcius</h4>
+        <h4> wind __ M/S</h4>
+        <h4> humidity  __%</h4>
+
+      </li>
+
+      <li class="card">
+        <h3> (_______)</h2>
+         
+        <h4> Temprature __ celcius</h4>
+        <h4> wind __M/S</h4>
+        <h4> humidity  __%</h4>
+
+      </li>
+
+      <li class="card">
+        <h3> (_______)</h2>
+        
+        <h4> Temprature __ celcius</h4>
+        <h4> wind __ M/S</h4>
+        <h4> humidity  __%</h4>
+
+      </li>
+
+      <li class="card">
+        <h3> (_______)</h2>
+         
+        <h4> Temprature __ celcius</h4>
+        <h4> wind __ M/S</h4>
+        <h4> humidity  __%</h4>
+
+      </li>
+
+
+      <li class="card">
+        <h3> (_______)</h2>
+        
+        <h4> Temprature __ celcius</h4>
+        <h4> wind __ M/S</h4>
+        <h4> humidity  __%</h4>
+
+      </li>
+
+     </ul>
+    </div>
+    </div>
+   
+
+
+  </body>
+</html> -->\
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <h1>Weather App</h1>
+    <div class="container">
+      <div class="weather-input">
+        <h3>Enter the city name</h3>
+        <input class="city-input" type="text" placeholder="London, Delhi, Ludhiana">
+        <button class="search-btn">Search</button>
+        <div class="separator"></div>
+        <button class="location-btn">Use current location</button>
+      </div>
+
+      <div class="weather-data">
+        <!-- <div class="current_weather">
+          <div class="details">
+            <h2>_____ (_____)</h2>
+            <h4>Temperature: ____°C</h4>
+            <h4>Wind: _____m/s</h4>
+            <h4>Humidity: ____%</h4>
+          </div>
+          <div class="icon">
+
+            <h4>________</h4>
+          </div>
+        </div> -->
+
+
+        <div class="current_weather">
+          <div class="details">
+            <h2>_______(__________)</h2>
+            <h4>Temperature: __°C</h4>
+            <h4>Wind: _______ m/s</h4>
+            <h4>Humidity: ______%</h4>
+          </div>
+
+        </div>
+
+        <div class="days-forecast">
+          <h2>5-day forecast</h2>
+          <ul class="weather-cards">
+            <li class="card">
+              <h3>(_______)</h3>
+              <h4>Temperature: __°C</h4>
+              <h4>Wind: __ m/s</h4>
+              <h4>Humidity: __%</h4>
+            </li>
+            <!-- Repeat for more days as needed -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
